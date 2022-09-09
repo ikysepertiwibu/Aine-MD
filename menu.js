@@ -35,26 +35,39 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-╭────◩ *『Hai, %ucapan %name!👋🗿』*
-│  
-┝❑ *Waktu:*
-┝❑ _%wib WIB_
-┝❑ _%wita WITA_
-┝❑ _%wit WIT_
-┝❑ *Hari:* _%week_
-┝❑ *Tanggal:* _%date_
-┝❑ *Uptime:* _%uptime_ (%muptime)
-┝─────◩
-┝❑ *Limit:* _%limit_
-┝❑ *Level:* _%level_
-┝❑ *XP:* _%exp_
+✪───۝─〖 *Nur Kholifah* 〗─۝────✪
+
+    ❍ *〖  Hai, %ucapan %name  〗* ❍  
+
+✪───۝─• 『 *ALL INFO* 』 •─۝────✪
+
+
+╭─◩   *『  INFO & WAKTU  』*
+┝⫹⫺ *👸🏻 Author:* © NR-Rfky28
+┝⫹⫺ *🛡️ Version:* %version
+┝⫹⫺ _⏰ %wib WIB_
+┝⫹⫺ _⏰ %wita WITA_
+┝⫹⫺ _⏰ %wit WIT_
+┝⫹⫺ *🗓️ Day:* _%week_
+┝⫹⫺ *📅 Tanggal:* _%date_
+┝⫹⫺ *⏱️ Uptime:* _%uptime_ (%muptime)
+╰─────◩
+
+╭─◩     *『  USER  』*
+┝➢ *💌 Nama:* %name
+┝➢ *💳 Limit:* _%limit_
+┝➢ *🗂️ Level:* _%level_
+┝➢ *💾 XP:* _%exp_
+┝➢ *⚒️ Role:* _%role_
+╰─────◩
+
 %readmore`.trimStart(),
-  header: ' ╭────◩ *〖%category〗*',
-  body: ' ╞❍➢ _%cmd_ ࿐ %islimit %isPremium',
+  header: '╭────◩ *〖 %category 〗*',
+  body: ' ╞㉨ _%cmd_  %islimit %isPremium',
   footer: '╰─────────◩\n',
   after: `*Made by ♡*
-┝❑ *%npmname* | _%version_
-┝❑${'```%npmdesc```'}
+┝⫹⫺ *%npmname* | _%version_
+┝⫹⫺${'```%npmdesc```'}
 ╰────────────◩
 `,
 }
@@ -158,20 +171,21 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    conn.sendButton(m.chat, text.trim(), 'Made with ♡ by NoerKiyy', null, [['Donasi', '.donasi'],['Owner', '.owner']], m)
-    /*conn.sendHydrated(m.chat, text.trim(), 'Ⓟ premium | Ⓛ limit', null, 'https://aiinne.github.io/', 'Website', '', '', [
-      ['Donate', '/donasi'],
-      ['Sewa Bot', '/sewa'],
-      ['Owner', '/owner']
-    ], m)*/
-    /*let url = `https://telegra.ph/file/ab1df70dfd5c2bac64da1.jpg`.trim()
+   // conn.sendButton(m.chat, text.trim(), 'Made with ♡ by NoerKiyy', null, [['Donasi', '.donasi'],['Owner', '.owner']], m)
+   conn.sendHydrated(m.chat, text.trim(), 'Made with ♡ by Kholifah', null, 'https://instagram.com/nrkhlifah28', 'instagram', '6289618728196', 'My Number', [
+      ['⫹⫺ Speed', '/speed'],
+      ['⫹⫺ Donasi', '/donasi'],
+      ['㉨ Owner', '/owner']
+    ], m)
+   /* let url = `https://telegra.ph/file/814690a6ddf535456e5d7.jpg`.trim()
     let res = await fetch(url)
     let buffer = await res.buffer()
     let message = await prepareWAMessageMedia({ image: buffer }, { upload: conn.waUploadToServer })
                 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                     templateMessage: {
                         hydratedTemplate: {
-                            imageMessage: message.imageMessage,
+                             locationMessage: { 
+                             jpegThumbnail: fs.readFileSync('./media/PP.jpg') }, 
                             hydratedContentText: text.trim(),
                             hydratedFooterText:'Ⓟ premium | Ⓛ limit',
                             hydratedButtons: [{
@@ -224,19 +238,19 @@ function clockString(ms) {
 
 function ucapan() {
         const hour_now = moment.tz('Asia/Jakarta').format('HH')
-        var ucapanWaktu = 'Pagi kak🌚'
+        var ucapanWaktu = 'Pagi kak'
         if (hour_now >= '03' && hour_now <= '10') {
-          ucapanWaktu = 'Pagi kak🌛'
+          ucapanWaktu = 'Pagi kak'
         } else if (hour_now >= '10' && hour_now <= '15') {
-          ucapanWaktu = 'Siang kak🌞'
+          ucapanWaktu = 'Siang kak'
         } else if (hour_now >= '15' && hour_now <= '17') {
-          ucapanWaktu = 'Sore kak🌞'
+          ucapanWaktu = 'Sore kak'
         } else if (hour_now >= '17' && hour_now <= '18') {
           ucapanWaktu = 'Selamat Petang'
         } else if (hour_now >= '18' && hour_now <= '23') {
-          ucapanWaktu = 'Malam kak🌝'
+          ucapanWaktu = 'Malam kak'
         } else {
-          ucapanWaktu = 'Selamat Malam!🌙'
+          ucapanWaktu = 'Selamat Malam!'
         }	
         return ucapanWaktu
 }
